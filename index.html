@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRCQT6HG3G"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NRCQT6HG3G');
-</script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MyDrSlot</title>
 <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=1xSs6FYW5bbp48dteBtuU7K9H-fHX6-qx">
 <style>
@@ -29,8 +21,28 @@
 </style>
 </head>
 <body>
-  <iframe src="https://apps.powerapps.com/play/e/default-9f72f298-327c-4b46-b95d-f6d4cdf9de72/a/6786bc68-eb39-4af9-9915-08cb98f42536?tenantId=9f72f298-327c-4b46-b95d-f6d4cdf9de72&hint=f2d48d4b-f3f4-481d-9f4c-e91667cba21b&sourcetime=1793449383547?hidenavbar=true"
-    allowfullscreen>
-  </iframe>
+  <iframe id="appFrame" allowfullscreen></iframe>
+
+  <noscript>
+    <iframe allowfullscreen
+      src="https://apps.powerapps.com/play/e/default-9f72f298-327c-4b46-b95d-f6d4cdf9de72/a/6786bc68-eb39-4af9-9915-08cb98f42536?tenantId=9f72f298-327c-4b46-b95d-f6d4cdf9de72&hint=f2d48d4b-f3f4-481d-9f4c-e91667cba21b&sourcetime=1793449383547?hidenavbar=true"></iframe>
+  </noscript>
+
+<script>
+  // Phone app URL
+  var PHONE_URL = "https://apps.powerapps.com/play/e/default-9f72f298-327c-4b46-b95d-f6d4cdf9de72/a/d17165ed-e5bc-459d-99b8-b884789cf478?tenantId=9f72f298-327c-4b46-b95d-f6d4cdf9de72&hint=ae4e0bfc-2f1f-4394-a6ee-c0e5a46edbf7&sourcetime=1794062510692?hidenavbar=true";
+
+  // Desktop + tablet app URL
+  var DESKTOP_URL = "https://apps.powerapps.com/play/e/default-9f72f298-327c-4b46-b95d-f6d4cdf9de72/a/6786bc68-eb39-4af9-9915-08cb98f42536?tenantId=9f72f298-327c-4b46-b95d-f6d4cdf9de72&hint=f2d48d4b-f3f4-481d-9f4c-e91667cba21b&sourcetime=1793449383547?hidenavbar=true";
+
+  // Phones only: iPhone/iPod, Android phones (have "Mobile"), Windows Phone.
+  // iPad and Android tablets (no "Mobile" in UA) are treated as tablets -> desktop URL.
+  function isPhone() {
+    var ua = navigator.userAgent || "";
+    return /iPhone|iPod|Windows Phone|Android.*Mobile|Mobile.*Android|BlackBerry|Opera Mini/i.test(ua);
+  }
+
+  document.getElementById("appFrame").src = isPhone() ? PHONE_URL : DESKTOP_URL;
+</script>
 </body>
 </html>
